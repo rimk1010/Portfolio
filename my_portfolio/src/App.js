@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar'
+import TopPage from './components/TopPage';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <NavBar />
+    <div className='container-fluid'>
+      <NavBar />
+    </div>
   );
 }
 
