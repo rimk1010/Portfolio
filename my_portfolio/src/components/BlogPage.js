@@ -1,19 +1,74 @@
-import React, { Component } from 'react';
-import NavBar from './NavBar';
+import React from 'react';
+import { makeStyles, Grid, Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 
-class BlogPage extends Component {
-    constructor(props){
-        super(props);
+const useStyles = makeStyles((theme) => ({
+    root:{
+        flexGrow:1,
+    },
+    card:{
+        maxWidth:700,
     }
+}));
 
-    render() {
+const datas = [
+    {
+        imgPath:'img1.jpg',
+        title:'Portfolio',
+        desc:'ポートフォリオです。ReactとMaterial UIを使用して作成しました。',
+    },
+    {
+        imgPath:'img2.jpg',
+        title:'TodoApp',
+        desc:'Todoアプリです。Reactを使用して作成しました。',
+    },
+];
+
+function WorkPage() {
+    const classes = useStyles();
+
+    function FormRow() {
         return (
-            <div>
-                <h1>BLOG</h1>
-                <p>SINOBLOGの記事をランダムに表示しています。</p>
-            </div>
-        );
+            <React.Fragment>
+                {datas.map((data) => {
+                    return(
+                    <Grid key={data.title} item xs={12} sm={6}>
+                        <Card className={classes.card}>
+                            <CardActionArea>
+                                <CardMedia component='img' alt='alternative img' height='200' image={`${process.env.PUBLIC_URL}/img/${data.imgPath}`} title={data.title} />
+                                <CardContent>
+                                    <Typography gutterBottom variant='h5' component='h2'>{data.title}</Typography>
+                                    <Typography variant='body2' color='textSecondary' component='p'>
+                                        {data.desc}
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size='small' color='primary'>Learn More</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                    );
+                })}
+            </React.Fragment>
+        )
     }
+
+    return (
+        <div>
+            <h1>BLOGS</h1>
+            <p>SINOBLOGの記事をランダムに表示しています。wp rest apiを使用しています。</p>
+            <div className={classes.root}>
+                <Grid container spacing={2} justify='center' alignItems='center'>
+                    <Grid container item xs={12} sm={10} spacing={3}>
+                        <FormRow />
+                    </Grid>
+                    <Grid container item xs={12} sm={10} spacing={3}>
+                        <FormRow />
+                    </Grid>
+                </Grid>
+            </div>
+        </div>
+    );
 };
 
-export default BlogPage;
+export default WorkPage;

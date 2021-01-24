@@ -9,11 +9,30 @@ import WorkPage from './WorkPage';
 import BlogPage from './BlogPage';
 import ContactPage from './ContactPage';
 
+const useStyles = makeStyles(() => ({
+    navbarDisplayFlex: {
+        display:'flex',
+        justifyContent:'space-between'
+    },
+    navDisplayFlex: {
+        display:'flex',
+        justifyContent:'space-between'
+    },
+    LinkText: {
+        textDecoration:'none',
+        textTransform:'uppercase',
+        color:'white'
+    },
+    current:{
+        color:'red'
+    }
+}));
+
 export default function NavBar() {
     const navs = [
         {name:'about', value:'ABOUT', path:'/about'},
         {name:'skills', value:'SKILLS', path:'/skills'},
-        {name:'work', value:'WORK', path:'/work'},
+        {name:'work', value:'WORKS', path:'/work'},
         {name:'blog', value:'BLOG', path:'/blog'},
         {name:'contact', value:'CONTACT', path:'/contact'}
     ];
@@ -21,22 +40,6 @@ export default function NavBar() {
     const current = {
         color:'red'
     };
-
-    const useStyles = makeStyles({
-        navbarDisplayFlex: {
-            display:'flex',
-            justifyContent:'space-between'
-        },
-        navDisplayFlex: {
-            display:'flex',
-            justifyContent:'space-between'
-        },
-        LinkText: {
-            textDecoration:'none',
-            textTransform:'uppercase',
-            color:'white'
-        }
-    });
 
     const classes = useStyles();
 

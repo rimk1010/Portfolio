@@ -1,18 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ContactPage extends Component {
-    constructor(props){
-        super(props);
-    }
-
-    render() {
+function ContactPage() {
         return (
             <div>
-                <h1>Contact</h1>
+                <h1>CONTACT</h1>
                 <p>何かありましたらご気軽にご相談ください</p>
             </div>
         );
-    }
 };
-
 export default ContactPage;
