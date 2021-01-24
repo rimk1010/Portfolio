@@ -8,9 +8,10 @@ class BlogPage extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <p>BlogPage</p>
-            </React.Fragment>
+            <div>
+                <h1>BLOG</h1>
+                <p>SINOBLOGの記事をランダムに表示しています。</p>
+            </div>
         );
     }
 };

@@ -4,26 +4,7 @@ html {
   font-size: 10px;
 }
 
-.navigation {
-  background-color: rgba(245, 69, 69, 0.5);
-}
-
-.nav-item {
-  list-style-type: none;
-  text-align: center;
-}
-
-.nav-link {
-  display: block;
-  font-size: 3rem;
-  font-weight: bold;
-  color: white;
-}
-
-.top-wrapper {
-  width: 50%;
-  margin: auto;
-  text-align: center;
-  font-size: 5rem;
-  background-color: aqua;
+body {
+  margin: 0;
+  box-sizing: border-box;
 }

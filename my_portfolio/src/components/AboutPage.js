@@ -8,9 +8,11 @@ class AboutPage extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <p>AboutPage</p>
-            </React.Fragment>
+            <div>
+                <h1>ABOUT ME!</h1>
+                <h2>SINOBU</h2>
+                <p>WebDeveloperです。よろしくお願いします。</p>
+            </div>
         );
     }
 };

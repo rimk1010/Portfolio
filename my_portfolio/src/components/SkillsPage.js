@@ -8,9 +8,10 @@ class SkillsPage extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <p>SkillsPage</p>
-            </React.Fragment>
+            <div>
+                <h1>SKILLS</h1>
+                <p>スキルページです。できることと熟練度をまとめています。</p>
+            </div>
         );
     }
 };
