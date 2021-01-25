@@ -1,5 +1,23 @@
 import React from 'react';
-import { makeStyles, Grid, Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import axios from 'axios';
+import { makeStyles, Grid, Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, Link } from '@material-ui/core';
+
+const wpUrl = 'https://fires-tech.com/wp-json/wp/v2/posts?_embed&per_page=4';
+
+const blogContents = [];
+
+ {/*
+        タイトル:console.log(response.title.rendered);
+        リンク:console.log(response.link);
+        本文抜粋:console.log(response.excerpt.rendered);
+        サムネイル:console.log(response["_embedded"]["wp:featuredmedia"][0]["source_url"]);
+    */}
+
+axios.get(wpUrl).then(res => {
+    res.data.map((response) => {
+        blogContents.push(response);
+    })
+});
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -10,40 +28,29 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const datas = [
-    {
-        imgPath:'img1.jpg',
-        title:'Portfolio',
-        desc:'ポートフォリオです。ReactとMaterial UIを使用して作成しました。',
-    },
-    {
-        imgPath:'img2.jpg',
-        title:'TodoApp',
-        desc:'Todoアプリです。Reactを使用して作成しました。',
-    },
-];
-
 function WorkPage() {
     const classes = useStyles();
 
     function FormRow() {
         return (
             <React.Fragment>
-                {datas.map((data) => {
+                {blogContents.map((content) => {
                     return(
-                    <Grid key={data.title} item xs={12} sm={6}>
+                    <Grid key={content.title.rendered} item xs={12} sm={6}>
                         <Card className={classes.card}>
                             <CardActionArea>
-                                <CardMedia component='img' alt='alternative img' height='200' image={`${process.env.PUBLIC_URL}/img/${data.imgPath}`} title={data.title} />
+                                <CardMedia component='img' alt='alternative img' height='200' image={content["_embedded"]["wp:featuredmedia"][0]["source_url"]} title={content.title.rendered} />
                                 <CardContent>
-                                    <Typography gutterBottom variant='h5' component='h2'>{data.title}</Typography>
+                                    <Typography gutterBottom variant='h5' component='h2'>{content.title.rendered}</Typography>
                                     <Typography variant='body2' color='textSecondary' component='p'>
-                                        {data.desc}
+                                        {content.excerpt.rendered}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size='small' color='primary'>Learn More</Button>
+                                <Button size='small' color='primary'>
+                                    <Link href={content.link} target='_blank'>Learn More</Link>
+                                </Button>
                             </CardActions>
                         </Card>
                     </Grid>
@@ -56,12 +63,9 @@ function WorkPage() {
     return (
         <div>
             <h1>BLOGS</h1>
-            <p>SINOBLOGの記事をランダムに表示しています。wp rest apiを使用しています。</p>
+            <p>SINOBLOGの記事を表示しています。wp rest apiを使用しています。</p>
             <div className={classes.root}>
                 <Grid container spacing={2} justify='center' alignItems='center'>
-                    <Grid container item xs={12} sm={10} spacing={3}>
-                        <FormRow />
-                    </Grid>
                     <Grid container item xs={12} sm={10} spacing={3}>
                         <FormRow />
                     </Grid>
