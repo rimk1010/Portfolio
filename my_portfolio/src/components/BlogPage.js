@@ -6,7 +6,7 @@ const wpUrl = 'https://fires-tech.com/wp-json/wp/v2/posts?_embed&per_page=4';
 
 const blogContents = [];
 
- {/*
+{/*
         タイトル:console.log(response.title.rendered);
         リンク:console.log(response.link);
         本文抜粋:console.log(response.excerpt.rendered);
@@ -20,11 +20,11 @@ axios.get(wpUrl).then(res => {
 });
 
 const useStyles = makeStyles((theme) => ({
-    root:{
-        flexGrow:1,
+    root: {
+        flexGrow: 1,
     },
-    card:{
-        maxWidth:700,
+    card: {
+        maxWidth: 500,
     }
 }));
 
@@ -35,25 +35,25 @@ function WorkPage() {
         return (
             <React.Fragment>
                 {blogContents.map((content) => {
-                    return(
-                    <Grid key={content.title.rendered} item xs={12} sm={6}>
-                        <Card className={classes.card}>
-                            <CardActionArea>
-                                <CardMedia component='img' alt='alternative img' height='200' image={content["_embedded"]["wp:featuredmedia"][0]["source_url"]} title={content.title.rendered} />
-                                <CardContent>
-                                    <Typography gutterBottom variant='h5' component='h2'>{content.title.rendered}</Typography>
-                                    <Typography variant='body2' color='textSecondary' component='p'>
-                                        {content.excerpt.rendered}
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button size='small' color='primary'>
-                                    <Link href={content.link} target='_blank'>Learn More</Link>
-                                </Button>
-                            </CardActions>
-                        </Card>
-                    </Grid>
+                    return (
+                        <Grid key={content.title.rendered} item xs={12} sm={6}>
+                            <Card className={classes.card}>
+                                <CardActionArea>
+                                    <CardMedia component='img' alt='alternative img' height='200' image={content["_embedded"]["wp:featuredmedia"][0]["source_url"]} title={content.title.rendered} />
+                                    <CardContent>
+                                        <Typography gutterBottom variant='h5' component='h2'>{content.title.rendered}</Typography>
+                                        <Typography variant='body2' color='textSecondary' component='p'>
+                                            {content.excerpt.rendered}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                                <CardActions>
+                                    <Button size='small' color='primary'>
+                                        <Link href={content.link} target='_blank'>Learn More</Link>
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </Grid>
                     );
                 })}
             </React.Fragment>
@@ -61,12 +61,17 @@ function WorkPage() {
     }
 
     return (
-        <div>
-            <h1>BLOGS</h1>
-            <p>SINOBLOGの記事を表示しています。wp rest apiを使用しています。</p>
+        <div className='content'>
+            <div className='page-text'>
+                <h1 className='page-title'>BLOGS</h1>
+                <div className='page-subtitle'>
+                    <p>SINOBLOGの記事を表示しています。</p>
+                    <p>wp rest apiを使用しています。</p>
+                </div>
+            </div>
             <div className={classes.root}>
                 <Grid container spacing={2} justify='center' alignItems='center'>
-                    <Grid container item xs={12} sm={10} spacing={3}>
+                    <Grid container item xs={12} sm={10} md={6} spacing={3}>
                         <FormRow />
                     </Grid>
                 </Grid>

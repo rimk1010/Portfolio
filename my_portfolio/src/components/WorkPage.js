@@ -54,15 +54,19 @@ function WorkPage() {
     }
 
     return (
-        <div>
-            <h1>WORKS</h1>
-            <p>作品集です。ご参照ください。</p>
+        <div className='content'>
+            <div className='page-text'>
+                <h1 className='page-title'>WORKS</h1>
+                <div className='page-subtitle'>
+                    <p>作品集です。ご参照ください。</p>
+                </div>
+            </div>
             <div className={classes.root}>
                 <Grid container spacing={2} justify='center' alignItems='center'>
-                    <Grid container item xs={12} sm={10} spacing={3}>
+                    <Grid container item xs={12} sm={10} md={6} spacing={3}>
                         <FormRow />
                     </Grid>
-                    <Grid container item xs={12} sm={10} spacing={3}>
+                    <Grid container item xs={12} sm={10} md={6} spacing={3}>
                         <FormRow />
                     </Grid>
                 </Grid>

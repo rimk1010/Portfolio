@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import NavBar from './NavBar';
+import React from 'react';
 
-class TopPage extends Component {
-    constructor(props){
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className='top-wrapper'>
-                <h1>My Portfolio</h1>
-                <p>Web Developer</p>
+function TopPage() {
+    return (
+        <div className='top-wrapper'>
+            <h1 className='top-title'>My Portfolio</h1>
+            <p className='top-subtitle'>Web Developer</p>
+            <div className='top-text'>
+                <p>I am a Web Developer, located in Tokyo.</p>
+                <p>Developer,Engineering,Design</p>
             </div>
-        );
-    }
+        </div>
+    );
 };
 
 export default TopPage;

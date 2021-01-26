@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
-import NavBar from './NavBar';
+import React from 'react';
 
-class AboutPage extends Component {
-    constructor(props){
-        super(props);
-    }
-
-    render() {
+function AboutPage() {
         return (
-            <div>
-                <h1>ABOUT ME!</h1>
-                <h2>SINOBU</h2>
-                <p>WebDeveloperです。よろしくお願いします。</p>
+            <div className='content'>
+                <div className='page-text'>
+                    <h1 className='page-title'>ABOUT ME!</h1>
+                    <div className='page-subtitle'>
+                        <h2>SINOBU</h2>
+                        <p>WebDeveloperです。よろしくお願いします。</p>
+                    </div>
+                </div>
             </div>
         );
-    }
 };
 
 export default AboutPage;

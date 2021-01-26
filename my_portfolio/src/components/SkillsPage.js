@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import NavBar from './NavBar';
+import React from 'react';
 
-class SkillsPage extends Component {
-    constructor(props){
-        super(props);
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>SKILLS</h1>
-                <p>スキルページです。できることと熟練度をまとめています。</p>
+function SkillsPage() {
+    return (
+        <div className='content'>
+            <div className='page-text'>
+                <h1 className='page-title'>SKILLS</h1>
+                <div className='page-subtitle'>
+                    <p>スキルページです。</p>
+                    <p>できることと熟練度をまとめています。</p>
+                </div>
             </div>
-        );
-    }
+        </div>
+    );
 };
 
 export default SkillsPage;
