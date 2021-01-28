@@ -65,8 +65,8 @@ function WorkPage() {
             <div className='page-text'>
                 <h1 className='page-title'>BLOGS</h1>
                 <div className='page-subtitle'>
-                    <p>SINOBLOGの記事を表示しています。</p>
-                    <p>wp rest apiを使用しています。</p>
+                    <p>WP REST APIを使用して</p>
+                    <p>記事を取得しています。</p>
                 </div>
             </div>
             <div className={classes.root}>

@@ -66,9 +66,6 @@ function WorkPage() {
                     <Grid container item xs={12} sm={10} md={6} spacing={3}>
                         <FormRow />
                     </Grid>
-                    <Grid container item xs={12} sm={10} md={6} spacing={3}>
-                        <FormRow />
-                    </Grid>
                 </Grid>
             </div>
         </div>

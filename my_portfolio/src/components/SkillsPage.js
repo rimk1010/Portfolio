@@ -35,10 +35,6 @@ function SkillsPage() {
         <div className='content'>
             <div className='page-text'>
                 <h1 className='page-title'>SKILLS</h1>
-                <div className='page-subtitle'>
-                    <p>スキルページです。</p>
-                    <p>できることと熟練度をまとめています。</p>
-                </div>
                 <div className='skills'>
                     {
                         skills.map((skill) => {
@@ -46,7 +42,7 @@ function SkillsPage() {
                             <div className='skills-container'>
                                 <h3>{skill.name}</h3>
                                 <img width='150' height='150' src={`${process.env.PUBLIC_URL}/img/${skill.img}`} />
-                                <Box component="fieldset" mb={3} borderColor="transparent">
+                                <Box className='rating' component="fieldset" mb={3} borderColor="transparent">
                                     <Rating size='large' name="read-only" value={skill.value} readOnly />
                                 </Box>
                             </div>

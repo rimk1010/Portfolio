@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     avatar:{
         backgroundColor:red[500],
     },
+    image:{
+        backgroundImage: `url(${process.env.PUBLIC_URL}/img/background.jpg"})`,
+    }
 }));
 
 

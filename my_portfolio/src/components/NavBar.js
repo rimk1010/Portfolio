@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
     },
     current:{
         color:'red'
-    }
+    },
 }));
 
 export default function NavBar() {
