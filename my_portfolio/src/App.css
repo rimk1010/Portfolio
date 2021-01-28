@@ -47,7 +47,7 @@ body {
 .content {
   margin: 5rem;
   padding: 3rem;
-  border: 5px double #4ec4d3;
+  border-top: 5px double #4ec4d3;
 }
 
 .skills {
